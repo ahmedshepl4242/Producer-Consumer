@@ -329,7 +329,7 @@ export default {
         this.endSimulation()
       }
       if (this.validGraph()) {
-        fetch(`http://localhost:8080/run`, {
+        fetch(`https://simulation-product-csm5.onrender.com/run`, {
           method: 'POST',
           body: JSON.stringify(this.createRunRequest()),
           headers: {
@@ -385,7 +385,7 @@ export default {
     },
 
     update() {
-      fetch(`http://localhost:8080/update`)
+      fetch(`https://simulation-product-csm5.onrender.com/update`)
       .then(res=> res.json())
       .then((updateObj)=>{
         if (updateObj.mid!=='null') { 
@@ -475,7 +475,7 @@ export default {
 
     endSimulation() {
 
-      fetch('http://localhost:8080/end', {
+      fetch('https://simulation-product-csm5.onrender.com/end', {
         method: 'POST'
       })
       .catch((e)=> console.log(e))
@@ -503,7 +503,7 @@ export default {
     },
 
     replay() {
-      fetch(`http://localhost:8080/replay`)
+      fetch(`https://simulation-product-csm5.onrender.com/replay`)
       .then(res=> res.json())
       .then((queue)=>{
         let updateObj = queue[0]
